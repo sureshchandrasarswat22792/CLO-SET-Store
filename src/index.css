@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body,
+#root {
+    height: 100%;
+}
+
+.rc-slider-handle {
+    border: 2px solid #404043;
+    background-color: #404043;
+    width: 18px;
+    height: 18px;
+    margin-top: -7.5px;
+}
+
+.rc-slider-track{
+    background-color: #112329;
+}
+
+.rc-slider-rail{
+   background-color: #293a3f; 
+}
