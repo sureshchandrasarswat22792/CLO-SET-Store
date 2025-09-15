@@ -1,9 +1,9 @@
-import React from 'react'
+import React from 'react';
 import type { ContentItem } from '../features/contents/contentsTypes';
 import { Pricing } from '../features/contents/contentsTypes'
 
 export default function ContentCard({ item }: { item: ContentItem }) {
-  const renderPrice = () => {
+  const RenderPrice = ():JSX.Element | null => {
     switch (item.pricingOption.toString()) {
       case Pricing.Paid:
         return <span className="text-[18px] font-semibold text-white">${item.price?.toFixed(2)}</span>
@@ -26,7 +26,7 @@ export default function ContentCard({ item }: { item: ContentItem }) {
           <p className="text-xs text-pink-400">{item.creator}</p>
         </div>
         <div className="mt-2 flex items-center justify-between">
-          {renderPrice()}
+          <RenderPrice />
         </div>
       </div>
     </div>

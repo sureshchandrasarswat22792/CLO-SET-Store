@@ -49,13 +49,13 @@ export default function StorePage() {
   }, [items, search, pricing, sort, priceRange])
 
   const loadMore = useCallback(() => {
-    setVisibleCount((v) => Math.min(filtered.length, v + 12))
+    setVisibleCount((v) => Math.min(filtered.length, v + 8))
   }, [filtered.length])
 
   useInfiniteScroll(loadMore, true)
 
   useEffect(() => {
-    setVisibleCount(16)
+    setVisibleCount(8)
   }, [search, pricing, sort])
 
   const togglePricing = (p: string) => {
@@ -69,7 +69,7 @@ export default function StorePage() {
   }
 
   const resetFilters = () => {
-    setPricing(new Set())   // empty set
+    setPricing(new Set())
     setSearch('')
     setSort('name')
     writeFiltersToUrl({ search: '', pricing: new Set<string>(), sort: 'name', priceRange: [0, 1000] })

@@ -15,11 +15,10 @@ export const readFiltersFromUrl = () => {
       priceRange = [parts[0], parts[1]]
     }
   }
-
   return { search, pricing, sort, priceRange }
 }
 
-export const writeFiltersToUrl = (opts: { search?: string; pricing: Set<string>; sort?: string, priceRange:[number, number] }) => {
+export const writeFiltersToUrl = (opts: { search?: string; pricing: Set<string>; sort?: string, priceRange: [number, number] }) => {
   const obj: any = {}
   if (opts.search) obj.search = opts.search
   if (opts.priceRange) obj.priceRange = opts.priceRange.join(',')

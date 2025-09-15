@@ -4,7 +4,6 @@ import { ContentItem } from './contentsTypes'
 
 export const fetchContents = createAsyncThunk('contents/fetch', async () => {
   const res = await axios.get('https://closet-recruiting-api.azurewebsites.net/api/data');
-  console.log(res.data)
   return res.data
 })
 

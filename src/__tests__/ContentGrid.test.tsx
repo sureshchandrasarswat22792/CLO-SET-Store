@@ -24,7 +24,6 @@ test('renders content and filters Paid items (with act)', async () => {
     }
   });
 
-  // Render wrapped in act
   await act(async () => {
     render(
       <Provider store={store}>
@@ -33,18 +32,15 @@ test('renders content and filters Paid items (with act)', async () => {
     );
   });
 
-  // Check all items initially
   expect(screen.getByText(/Yellow green coat/i)).toBeInTheDocument();
   expect(screen.getByText(/Brown Anorak/i)).toBeInTheDocument();
   expect(screen.getByText(/Block shape mini bag/i)).toBeInTheDocument();
 
-  // Apply Paid filter inside act
   const paidCheckbox = screen.getByLabelText(/Paid/i);
   await act(async () => {
     await userEvent.click(paidCheckbox);
   });
 
-  // Wait for filtered results
   await act(async () => {
     await waitFor(() => {
       expect(screen.getByText(/Yellow green coat/i)).toBeInTheDocument();
